@@ -1,0 +1,18 @@
+﻿  Event_Manager.cpp
+c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\file_utils.h(59): warning C4244: 'argument': conversion from 'double' to 'std::streamoff', possible loss of data
+  c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\file_utils.h(50): note: while compiling class template member function 'bool File_Utils<Event>::read_bin(const char *,T &,double)'
+          with
+          [
+              T=Event
+          ]
+  c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\event_manager.cpp(21): note: see reference to function template instantiation 'bool File_Utils<Event>::read_bin(const char *,T &,double)' being compiled
+          with
+          [
+              T=Event
+          ]
+  c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\event_manager.cpp(5): note: see reference to class template instantiation 'File_Utils<Event>' being compiled
+c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\file_utils.h(79): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
+  c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\file_utils.h(73): note: while compiling class template member function 'int File_Utils<Event>::get_file_length(const char *)'
+  c:\users\mitchdev\documents\visual studio 2015\projects\my_events\my_events\event_manager.cpp(13): note: see reference to function template instantiation 'int File_Utils<Event>::get_file_length(const char *)' being compiled
+  My_Events.vcxproj -> C:\Users\mitchDev\documents\visual studio 2015\Projects\My_Events\Debug\My_Events.exe
+  My_Events.vcxproj -> C:\Users\mitchDev\documents\visual studio 2015\Projects\My_Events\Debug\My_Events.pdb (Full PDB)
