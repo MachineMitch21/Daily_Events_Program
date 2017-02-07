@@ -1,18 +1,35 @@
-﻿  Event_Manager.cpp
-c:\users\mitch\documents\github_reps\my_events\my_events\my_events\file_utils.h(64): warning C4244: 'argument': conversion from 'double' to 'std::streamoff', possible loss of data
-  c:\users\mitch\documents\github_reps\my_events\my_events\my_events\file_utils.h(53): note: while compiling class template member function 'bool File_Utils<Event>::read_bin(const char *,T &,double)'
+﻿  stdafx.cpp
+  My_Events.cpp
+  Event_Manager.cpp
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\file_utils.h(62): warning C4244: 'argument': conversion from 'double' to 'std::streamoff', possible loss of data
+  c:\users\mitchdev\documents\github\my_events\my_events\my_events\file_utils.h(53): note: while compiling class template member function 'bool File_Utils<Event>::read_bin(const char *,T &,double)'
           with
           [
               T=Event
           ]
-  c:\users\mitch\documents\github_reps\my_events\my_events\my_events\event_manager.cpp(20): note: see reference to function template instantiation 'bool File_Utils<Event>::read_bin(const char *,T &,double)' being compiled
+  c:\users\mitchdev\documents\github\my_events\my_events\my_events\event_manager.cpp(18): note: see reference to function template instantiation 'bool File_Utils<Event>::read_bin(const char *,T &,double)' being compiled
           with
           [
               T=Event
           ]
-  c:\users\mitch\documents\github_reps\my_events\my_events\my_events\event_manager.cpp(5): note: see reference to class template instantiation 'File_Utils<Event>' being compiled
-c:\users\mitch\documents\github_reps\my_events\my_events\my_events\file_utils.h(87): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
-  c:\users\mitch\documents\github_reps\my_events\my_events\my_events\file_utils.h(81): note: while compiling class template member function 'int File_Utils<Event>::get_file_length(const char *)'
-  c:\users\mitch\documents\github_reps\my_events\my_events\my_events\event_manager.cpp(13): note: see reference to function template instantiation 'int File_Utils<Event>::get_file_length(const char *)' being compiled
-  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\My_Events\My_Events\x64\Debug\My_Events.exe
-  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)
+  c:\users\mitchdev\documents\github\my_events\my_events\my_events\event_manager.cpp(5): note: see reference to class template instantiation 'File_Utils<Event>' being compiled
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\file_utils.h(84): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
+  c:\users\mitchdev\documents\github\my_events\my_events\my_events\file_utils.h(78): note: while compiling class template member function 'int File_Utils<Event>::get_file_length(const char *)'
+  c:\users\mitchdev\documents\github\my_events\my_events\my_events\event_manager.cpp(13): note: see reference to function template instantiation 'int File_Utils<Event>::get_file_length(const char *)' being compiled
+  Event.cpp
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(8): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(28): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(32): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\mitchdev\documents\github\my_events\my_events\my_events\event.cpp(36): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+  Generating Code...
+  LINK : C:\Users\mitchDev\Documents\GitHub\My_Events\My_Events\x64\Debug\My_Events.exe not found or not built by the last incremental link; performing full link
+  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\My_Events\My_Events\x64\Debug\My_Events.exe
+  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)

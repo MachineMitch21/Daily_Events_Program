@@ -4,13 +4,17 @@
 #include "stdafx.h"
 #include "Event_Manager.h"
 #include "File_Utils.h"
+#include "Input_Validation.h"
 #include <string>
+
+#define MAX_CHOICES 6
 
 using std::string;
 
 void introduction();
 void init_program();
 void create_event();
+void modify_event();
 void remove_event();
 void save_and_quit();
 void save_and_continue();
@@ -33,10 +37,6 @@ void introduction() {
 	//std::cout << e_man.get_event_book().at(0).getName() << std::endl;
 
 	std::cout << "Hello, I will help you with your daily events!" << std::endl;
-	std::cout << "This is to test github i guess" << std::endl;
-	std::cout << "I am also testing Github." << std::endl;
-	std::cout << "And here we go again" << std::endl;
-	std::cout << "And yet again.." << std::endl;
 	init_program();
 }
 
@@ -51,15 +51,16 @@ void init_program() {
 
 	std::cout << "What would you like to do?" << std::endl;
 	std::cout << "1. Create Event." << std::endl;
-	std::cout << "2. Remove Event." << std::endl;
-	std::cout << "3. View Events." << std::endl;
-	std::cout << "4. Save & Exit" << std::endl;
-	std::cout << "5. Save & Continue" << std::endl;
+	std::cout << "2. Modify Event." << std::endl;
+	std::cout << "3. Remove Event." << std::endl;
+	std::cout << "4. View Events." << std::endl;
+	std::cout << "5. Save & Exit" << std::endl;
+	std::cout << "6. Save & Continue" << std::endl;
 	std::cin >> choice;
 
-	if (choice > 5 || choice < 1) {
+	if (choice > MAX_CHOICES || choice < 1) {
 		system("cls");
-		std::cout << "Input must be 1, 2, 3, 4 or 5" << std::endl;
+		std::cout << "Input must be between 1 and " << MAX_CHOICES << std::endl;
 		std::cout << std::endl;
 		init_program();
 	}
@@ -71,15 +72,17 @@ void init_program() {
 			create_event();
 			break;
 		case 2:
+			modify_event();
+		case 3:
 			remove_event();
 			break;
-		case 3:
+		case 4:
 			view_all_events();
 			break;
-		case 4:
+		case 5:
 			save_and_quit();
 			break;
-		case 5:
+		case 6:
 			save_and_continue();
 			break;
 		default:
@@ -104,16 +107,27 @@ void create_event() {
 	std::getline(std::cin, desc);
 	std::cout << std::endl;
 
+	DATE:
+
 	std::cout << "Enter date: ";
 	std::cin.ignore();
 	std::getline(std::cin, date);
 	std::cout << std::endl;
 
-	e_man.create_event(name.c_str(), desc.c_str(), date.c_str());
+	if (valid_date(date)) {
+		
+		e_man.create_event(name.c_str(), desc.c_str(), date.c_str());
 
-	system("cls");
+		system("cls");
 
-	prompt_another_event();
+		prompt_another_event();
+
+	}
+	else {
+		system("cls");
+		std::cout << "Date format should be dd/mm/yyyy, please re-enter the date." << std::endl;
+		goto DATE;
+	}
 }
 
 void prompt_another_event() {
@@ -133,6 +147,25 @@ void prompt_another_event() {
 		system("cls");
 		std::cout << "Input must be 1 or 2" << std::endl;
 		prompt_another_event();
+	}
+}
+
+void modify_event() {
+
+	string date_of_event;
+
+	std::cout << "Do you know the date of the event you want to modify?" << std::endl;
+	std::cout << "1. Yes" << std::endl;
+	std::cout << "2. No" << std::endl;
+	std::cin >> choice;
+
+	switch (choice) {
+	case 1:
+		system("cls");
+		std::cout << "Enter the date of the event: ";
+		std::getline(std::cin, date_of_event);
+
+
 	}
 }
 
@@ -174,4 +207,6 @@ void view_all_events() {
 	}
 
 	system("PAUSE");
+
+	init_program();
 }
