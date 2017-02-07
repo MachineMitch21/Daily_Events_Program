@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="Event.h" />
     <ClInclude Include="Event_Manager.h" />
+    <ClInclude Include="Event_Seach.h" />
     <ClInclude Include="File_Utils.h" />
     <ClInclude Include="Input_Validation.h" />
     <ClInclude Include="stdafx.h" />

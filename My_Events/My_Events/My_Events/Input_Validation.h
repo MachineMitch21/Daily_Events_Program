@@ -1,6 +1,11 @@
 #pragma once
 #include <string>
 
+enum VALIDATION {
+	DATE_OK,
+	INVALID_DATE
+};
+
 bool valid_date(std::string date) {
         //Are the first two characters in the string:date are digits?
 	if (isdigit(date.at(0)) && isdigit(date.at(1))) {

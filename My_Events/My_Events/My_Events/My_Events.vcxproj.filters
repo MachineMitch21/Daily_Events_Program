@@ -36,6 +36,9 @@
     <ClInclude Include="Input_Validation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Event_Seach.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

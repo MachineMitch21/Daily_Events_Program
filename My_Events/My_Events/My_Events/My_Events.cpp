@@ -5,6 +5,7 @@
 #include "Event_Manager.h"
 #include "File_Utils.h"
 #include "Input_Validation.h"
+#include "Event_Seach.h"
 #include <string>
 
 #define MAX_CHOICES 6
@@ -16,10 +17,10 @@ void init_program();
 void create_event();
 void modify_event();
 void remove_event();
-void save_and_quit();
-void save_and_continue();
+void save_to_file();
 void prompt_another_event();
 void view_all_events();
+void print_date_format_error();
 
 Event_Manager e_man;
 File_Utils<Event> f_utils;
@@ -80,10 +81,13 @@ void init_program() {
 			view_all_events();
 			break;
 		case 5:
-			save_and_quit();
+			//save and exit
+			save_to_file();
 			break;
 		case 6:
-			save_and_continue();
+			//save and continue
+			save_to_file();
+			init_program();
 			break;
 		default:
 			std::cout << "Wrong value was entered.." << std::endl;
@@ -125,8 +129,7 @@ void create_event() {
 	else {
 		//If the user input for date is invalid, clear the console, show the user the correct
 		//format for dates and goto DATE directly above where date input is gathered
-		system("cls");
-		std::cout << "Date format should be mm/dd/yyyy, please re-enter the date." << std::endl;
+		print_date_format_error();
 		goto DATE;
 	}
 }
@@ -162,32 +165,27 @@ void modify_event() {
 
 	switch (choice) {
 	case 1:
+		
+		MODIFICATION:
+
 		system("cls");
 		std::cout << "Enter the date of the event: ";
 		std::getline(std::cin, date_of_event);
+		
+		try {
+			std::vector<Event>* matches = events_with_date(e_man, date_of_event.c_str());
 
 
+		}
+		catch (VALIDATION v) {
+			//if a validation error is thrown within events_with_date, go back to entering the date
+			print_date_format_error();
+			goto MODIFICATION;
+		}
 	}
 }
 
 void remove_event() {
-
-}
-
-void save_and_quit() {
-	std::cout << "EventBook size is: " << e_man.get_event_book().size() << std::endl;
-	for (int i = 0; i < e_man.get_event_book().size(); i++) {
-		if (i == 0) {
-			f_utils.write_bin(EVENT_FILE_DIR, e_man.get_event_book().at(i), OVERWRITE);
-		}
-		else {
-			f_utils.write_bin(EVENT_FILE_DIR, e_man.get_event_book().at(i), APPEND);
-		}
-
-	}
-}
-
-void save_and_continue() {
 
 }
 
@@ -210,4 +208,20 @@ void view_all_events() {
 	system("PAUSE");
 
 	init_program();
+}
+
+void save_to_file() {
+	for (int i = 0; i < e_man.get_event_book().size(); i++) {
+		if (i == 0) {
+			f_utils.write_bin(EVENT_FILE_DIR, e_man.get_event_book().at(i), OVERWRITE);
+		}
+		else {
+			f_utils.write_bin(EVENT_FILE_DIR, e_man.get_event_book().at(i), APPEND);
+		}
+	}
+}
+
+void print_date_format_error() {
+	system("cls");
+	std::cout << "Date format should be mm/dd/yyyy, please re-enter the date." << std::endl;
 }
