@@ -103,14 +103,12 @@ void create_event() {
 	std::cout << std::endl;
 
 	std::cout << "Enter description: ";
-	std::cin.ignore();
 	std::getline(std::cin, desc);
 	std::cout << std::endl;
 
 	DATE:
 
 	std::cout << "Enter date: ";
-	std::cin.ignore();
 	std::getline(std::cin, date);
 	std::cout << std::endl;
 
@@ -125,7 +123,7 @@ void create_event() {
 	}
 	else {
 		system("cls");
-		std::cout << "Date format should be dd/mm/yyyy, please re-enter the date." << std::endl;
+		std::cout << "Date format should be mm/dd/yyyy, please re-enter the date." << std::endl;
 		goto DATE;
 	}
 }
