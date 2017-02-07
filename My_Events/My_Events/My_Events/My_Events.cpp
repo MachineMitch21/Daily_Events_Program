@@ -106,6 +106,7 @@ void create_event() {
 	std::getline(std::cin, desc);
 	std::cout << std::endl;
 
+	//This is a goto that is setup for if a user enters invalid date data
 	DATE:
 
 	std::cout << "Enter date: ";
@@ -122,6 +123,8 @@ void create_event() {
 
 	}
 	else {
+		//If the user input for date is invalid, clear the console, show the user the correct
+		//format for dates and goto DATE directly above where date input is gathered
 		system("cls");
 		std::cout << "Date format should be mm/dd/yyyy, please re-enter the date." << std::endl;
 		goto DATE;
