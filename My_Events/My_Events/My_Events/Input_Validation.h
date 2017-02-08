@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-enum VALIDATION {
+enum VALIDATION_EXCEPTION {
 	DATE_OK,
 	INVALID_DATE
 };

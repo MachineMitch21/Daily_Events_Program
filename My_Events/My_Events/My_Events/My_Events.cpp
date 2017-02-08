@@ -168,16 +168,26 @@ void modify_event() {
 		
 		MODIFICATION:
 
-		system("cls");
 		std::cout << "Enter the date of the event: ";
 		std::getline(std::cin, date_of_event);
 		
 		try {
-			std::vector<Event>* matches = events_with_date(e_man, date_of_event.c_str());
+			std::vector<Event> matches = events_with_date(e_man, date_of_event.c_str());
 
+			std::cout << "--**Select the Event you want to modify**--" << std::endl;
+			for (int i = 0; i < matches.size(); i++) {
+				std::cout << i << " " << matches[i].getName() << std::endl;
+			}
 
+			std::cin >> choice;
+
+			std::cout << "Enter the change of name" << std::endl;
+			string name;
+			std::getline(std::cin, name);
+
+			matches.at(choice).set_name(name.c_str());
 		}
-		catch (VALIDATION v) {
+		catch (VALIDATION_EXCEPTION v) {
 			//if a validation error is thrown within events_with_date, go back to entering the date
 			print_date_format_error();
 			goto MODIFICATION;
