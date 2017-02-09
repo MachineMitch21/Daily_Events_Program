@@ -33,15 +33,16 @@ void Event_Manager::create_event(const char* name, const char* desc, const char*
 	e_book.push_back(Event(name, desc, date));
 }
 
-void Event_Manager::modify_event(const char* name, const char* _mod) {
-
+void Event_Manager::modify_event(ATTRIBUTE ATTR, const char* _mod, int event_index) {
+	
+	e_book.at(event_index).mod_attr(ATTR, _mod);
 }
 
 Event Event_Manager::get_event(int e_index) {
 	return e_book.at(e_index);
 }
 
-std::vector<Event>& Event_Manager::get_event_book() {
+std::vector<Event> Event_Manager::get_event_book() {
 	return e_book;
 }
 

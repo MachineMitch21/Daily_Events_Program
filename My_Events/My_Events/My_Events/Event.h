@@ -1,6 +1,12 @@
 #pragma once
 #include <string.h>
 
+enum ATTRIBUTE {
+	NAME,
+	DESCRIPTION,
+	DATE
+};
+
 class Event
 {
 public:
@@ -15,6 +21,8 @@ public:
 	void set_description(const char* desc);
 	void set_date(const char* date);
 	void set_name(const char* name);
+
+	void mod_attr(ATTRIBUTE ATTR, const char* _mod);
 
 private:
 	char e_name[120];

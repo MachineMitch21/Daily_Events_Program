@@ -36,6 +36,21 @@ void Event::set_name(const char* name) {
 	strcpy(e_name, name);
 }
 
+void Event::mod_attr(ATTRIBUTE ATTR, const char* _mod) {
+
+	switch (ATTR) {
+	case NAME:
+		set_name(_mod);
+		break;
+	case DESCRIPTION:
+		set_description(_mod);
+		break;
+	case DATE:
+		set_date(_mod);
+		break;
+	}
+}
+
 Event::~Event()
 {
 }

@@ -155,8 +155,10 @@ void prompt_another_event() {
 }
 
 void modify_event() {
-
+	int attr_to_mod;
 	string date_of_event;
+	string _mod;
+	int event_index;
 
 	std::cout << "Do you know the date of the event you want to modify?" << std::endl;
 	std::cout << "1. Yes" << std::endl;
@@ -175,17 +177,30 @@ void modify_event() {
 			std::vector<Event> matches = events_with_date(e_man, date_of_event.c_str());
 
 			std::cout << "--**Select the Event you want to modify**--" << std::endl;
+			std::cout << matches.size() << std::endl;
 			for (int i = 0; i < matches.size(); i++) {
 				std::cout << i << " " << matches[i].getName() << std::endl;
+				std::cout << std::endl;
 			}
 
-			std::cin >> choice;
+			std::cin >> event_index;
 
-			std::cout << "Enter the change of name" << std::endl;
-			string name;
-			std::getline(std::cin, name);
+			std::cout << "What part of the event do you want to modify?" << std::endl;
+			std::cout << "0. Name" << std::endl;
+			std::cout << "1. Date" << std::endl;
+			std::cout << "2. Description" << std::endl;
+			std::cin >> attr_to_mod;
+			ATTRIBUTE ATTR = (ATTRIBUTE)attr_to_mod;
+			std::cout << std::endl;
 
-			matches.at(choice).set_name(name.c_str());
+			//Still need to overload ostream to print text equivalent of ATTRIBUTE
+			std::cout << "Enter the new " << (ATTRIBUTE)attr_to_mod;
+			std::getline(std::cin, _mod);
+
+			e_man.modify_event(ATTR, _mod.c_str(), event_index);
+
+			//Save the changes to disk
+			save_to_file();
 		}
 		catch (VALIDATION_EXCEPTION v) {
 			//if a validation error is thrown within events_with_date, go back to entering the date

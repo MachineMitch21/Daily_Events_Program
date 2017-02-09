@@ -1,22 +1,4 @@
 ﻿  My_Events.cpp
-c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\my_events.cpp(190): warning C4101: 'v': unreferenced local variable
-  Event_Manager.cpp
-c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\file_utils.h(62): warning C4244: 'argument': conversion from 'double' to 'std::streamoff', possible loss of data
-  c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\file_utils.h(53): note: while compiling class template member function 'bool File_Utils<Event>::read_bin(const char *,T &,double)'
-          with
-          [
-              T=Event
-          ]
-  c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\event_manager.cpp(18): note: see reference to function template instantiation 'bool File_Utils<Event>::read_bin(const char *,T &,double)' being compiled
-          with
-          [
-              T=Event
-          ]
-  c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\event_manager.cpp(5): note: see reference to class template instantiation 'File_Utils<Event>' being compiled
-c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\file_utils.h(84): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
-  c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\file_utils.h(78): note: while compiling class template member function 'int File_Utils<Event>::get_file_length(const char *)'
-  c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\event_manager.cpp(13): note: see reference to function template instantiation 'int File_Utils<Event>::get_file_length(const char *)' being compiled
-  Generating Code...
-c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\event_seach.h(21): warning C4172: returning address of local variable or temporary: matches
-  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
-  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)
+c:\users\mitchdev\source\repos\daily_events_program\my_events\my_events\my_events\my_events.cpp(205): warning C4101: 'v': unreferenced local variable
+  My_Events.vcxproj -> C:\Users\mitchDev\Source\Repos\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
+  My_Events.vcxproj -> C:\Users\mitchDev\Source\Repos\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)

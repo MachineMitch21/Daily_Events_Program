@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#define DATE_MIN_LENGTH 8
 
 enum VALIDATION_EXCEPTION {
 	DATE_OK,
@@ -7,8 +8,13 @@ enum VALIDATION_EXCEPTION {
 };
 
 bool valid_date(std::string date) {
+	//If the length of the date passed in is less than DATE_MIN_LENGTH characters in length, go ahead and return false.
+	//Otherwise, out of range errors will be thrown by string class
+	if (date.length() < DATE_MIN_LENGTH) {
+		return false;
+	}
         //Are the first two characters in the string:date are digits?
-	if (isdigit(date.at(0)) && isdigit(date.at(1))) {
+	else if (isdigit(date.at(0)) && isdigit(date.at(1))) {
 		if (date.at(2) == '/') {
 			if (isdigit(date.at(3)) && isdigit(date.at(4))) {
 				if (date.at(5) == '/') {
