@@ -1,7 +1,5 @@
 #include "Event.h"
 
-
-
 Event::Event(const char* name, const char* desc, const char* date)
 {
 	strcpy(e_name, name);
@@ -24,6 +22,10 @@ const char* Event::getName() {
 	return e_name;
 }
 
+int Event::get_id() {
+	return event_id;
+}
+
 void Event::set_description(const char* desc) {
 	strcpy(e_desc, desc);
 }
@@ -34,6 +36,10 @@ void Event::set_date(const char* date) {
 
 void Event::set_name(const char* name) {
 	strcpy(e_name, name);
+}
+
+void Event::set_id(int id) {
+	event_id = id;
 }
 
 void Event::mod_attr(ATTRIBUTE ATTR, const char* _mod) {

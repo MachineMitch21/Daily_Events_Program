@@ -11,6 +11,7 @@ Event_Manager::Event_Manager()
 	bool valid_position = true;
 	int read_start = 0;
 	int file_length = f_utils.get_file_length(EVENT_FILE_DIR);
+	int event_id = 0;
 
 	if (file_length > 0) {
 		while (valid_position) {
@@ -18,9 +19,11 @@ Event_Manager::Event_Manager()
 			valid_position = f_utils.read_bin(EVENT_FILE_DIR, e, read_start);
 
 			if (valid_position) {
+				e.set_id(event_id);
 				e_book.push_back(e);
 			}
 			
+			event_id++;
 			read_start += sizeof(Event);
 		}
 	}

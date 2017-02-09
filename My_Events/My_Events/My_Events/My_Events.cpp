@@ -169,6 +169,8 @@ void modify_event() {
 	case 1:
 		
 		MODIFICATION:
+		std::cin.clear();
+		std::cin.sync();
 
 		std::cout << "Enter the date of the event: ";
 		std::getline(std::cin, date_of_event);
@@ -179,7 +181,7 @@ void modify_event() {
 			std::cout << "--**Select the Event you want to modify**--" << std::endl;
 			std::cout << matches.size() << std::endl;
 			for (int i = 0; i < matches.size(); i++) {
-				std::cout << i << " " << matches[i].getName() << std::endl;
+				std::cout << matches.at(i).get_id() << " " << matches[i].getName() << std::endl;
 				std::cout << std::endl;
 			}
 
@@ -195,6 +197,11 @@ void modify_event() {
 
 			//Still need to overload ostream to print text equivalent of ATTRIBUTE
 			std::cout << "Enter the new " << (ATTRIBUTE)attr_to_mod;
+
+			std::cin.clear();
+			std::cin.sync();
+			std::cin.ignore();
+
 			std::getline(std::cin, _mod);
 
 			e_man.modify_event(ATTR, _mod.c_str(), event_index);
