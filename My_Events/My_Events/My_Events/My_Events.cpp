@@ -119,7 +119,7 @@ void create_event() {
 
 	if (valid_date(date)) {
 		
-		e_man.create_event(name.c_str(), desc.c_str(), date.c_str());
+		e_man.create_event(name.c_str(), desc.c_str(), date.c_str(), e_man.get_event_book().size());
 
 		system("cls");
 

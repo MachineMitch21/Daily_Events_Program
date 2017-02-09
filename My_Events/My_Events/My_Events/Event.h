@@ -10,7 +10,7 @@ enum ATTRIBUTE {
 class Event
 {
 public:
-	Event(const char* name, const char* desc, const char* date);
+	Event(const char* name, const char* desc, const char* date, int id);
 	Event();
 	~Event();
 

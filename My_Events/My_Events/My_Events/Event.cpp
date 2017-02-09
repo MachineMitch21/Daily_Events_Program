@@ -1,10 +1,11 @@
 #include "Event.h"
 
-Event::Event(const char* name, const char* desc, const char* date)
+Event::Event(const char* name, const char* desc, const char* date, int id)
 {
-	strcpy(e_name, name);
-	strcpy(e_desc, desc);
-	strcpy(e_date, date);
+	set_name(name);
+	set_description(desc);
+	set_date(date);
+	set_id(id);
 }
 
 Event::Event() {

@@ -30,10 +30,10 @@ Event_Manager::Event_Manager()
 	
 }
 
-void Event_Manager::create_event(const char* name, const char* desc, const char* date) {
+void Event_Manager::create_event(const char* name, const char* desc, const char* date, int id) {
 	std::cout << "Creating event " << std::endl;
 
-	e_book.push_back(Event(name, desc, date));
+	e_book.push_back(Event(name, desc, date, id));
 }
 
 void Event_Manager::modify_event(ATTRIBUTE ATTR, const char* _mod, int event_index) {
