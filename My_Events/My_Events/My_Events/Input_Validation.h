@@ -2,9 +2,10 @@
 #include <string>
 #define DATE_MIN_LENGTH 8
 
-enum VALIDATION_EXCEPTION {
+enum DATE_INPUT_STATE {
 	DATE_OK,
-	INVALID_DATE
+	INVALID_DATE,
+	DATE_NOT_FOUND
 };
 
 bool valid_date(std::string date) {

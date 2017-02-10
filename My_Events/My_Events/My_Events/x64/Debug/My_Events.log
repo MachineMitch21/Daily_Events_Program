@@ -1,29 +1,5 @@
 ﻿  My_Events.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\my_events.cpp(122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\my_events.cpp(212): warning C4101: 'v': unreferenced local variable
-  Event_Manager.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\file_utils.h(62): warning C4244: 'argument': conversion from 'double' to 'std::streamoff', possible loss of data
-  c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\file_utils.h(53): note: while compiling class template member function 'bool File_Utils<Event>::read_bin(const char *,T &,double)'
-          with
-          [
-              T=Event
-          ]
-  c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_manager.cpp(19): note: see reference to function template instantiation 'bool File_Utils<Event>::read_bin(const char *,T &,double)' being compiled
-          with
-          [
-              T=Event
-          ]
-  c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_manager.cpp(5): note: see reference to class template instantiation 'File_Utils<Event>' being compiled
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\file_utils.h(84): warning C4244: '=': conversion from 'std::streamoff' to 'int', possible loss of data
-  c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\file_utils.h(78): note: while compiling class template member function 'int File_Utils<Event>::get_file_length(const char *)'
-  c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_manager.cpp(13): note: see reference to function template instantiation 'int File_Utils<Event>::get_file_length(const char *)' being compiled
-  Event.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(31): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(35): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(39): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-  Generating Code...
-  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
-  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)
+c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\my_events.cpp(130): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\mitch\documents\github_reps\daily_events_program\my_events\my_events\my_events\my_events.cpp(225): warning C4101: 'v': unreferenced local variable
+  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
+  My_Events.vcxproj -> C:\Users\mitch\Documents\GitHub_Reps\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)

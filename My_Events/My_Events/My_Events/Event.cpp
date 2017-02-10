@@ -58,6 +58,23 @@ void Event::mod_attr(ATTRIBUTE ATTR, const char* _mod) {
 	}
 }
 
+std::ostream& operator<<(std::ostream& out, const ATTRIBUTE& ATTR) {
+
+	switch (ATTR) {
+	case NAME:
+		out << "Name";
+		break;
+	case DESCRIPTION:
+		out << "Description";
+		break;
+	case DATE:
+		out << "Date";
+		break;
+	}
+
+	return out;
+}
+
 Event::~Event()
 {
 }

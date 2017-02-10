@@ -1,5 +1,6 @@
 #pragma once
 #include <string.h>
+#include <iostream>
 
 enum ATTRIBUTE {
 	NAME,
@@ -25,6 +26,8 @@ public:
 	void set_id(int id);
 
 	void mod_attr(ATTRIBUTE ATTR, const char* _mod);
+
+	friend std::ostream& operator<<(std::ostream& out, const ATTRIBUTE& ATTR);
 
 private:
 	char e_name[120];

@@ -16,6 +16,19 @@ void introduction();
 void init_program();
 void create_event();
 void modify_event();
+
+//User searches for the event to modify and if the search fails for any reason, returns false
+DATE_INPUT_STATE user_date_search(string& date_of_event, std::vector<Event>& matches);
+
+//User selects event to modify from search results stored in (matches) and the id of that event is returned
+int select_event_to_modify(string date_of_event, std::vector<Event> matches);
+
+//User selects the attribute that needs to be modified and it is returned
+ATTRIBUTE get_attr_to_mod();
+
+//User performs the actual modification
+void do_modification(int event_index);
+
 void remove_event();
 void save_to_file();
 void prompt_another_event();
@@ -155,9 +168,9 @@ void prompt_another_event() {
 }
 
 void modify_event() {
-	int attr_to_mod;
 	string date_of_event;
-	string _mod;
+	std::vector<Event> matches;
+	DATE_INPUT_STATE dis;
 	int event_index;
 
 	std::cout << "Do you know the date of the event you want to modify?" << std::endl;
@@ -165,56 +178,103 @@ void modify_event() {
 	std::cout << "2. No" << std::endl;
 	std::cin >> choice;
 
+	system("cls");
+
 	switch (choice) {
 	case 1:
 		
-		MODIFICATION:
 		std::cin.clear();
 		std::cin.sync();
-
+		std::cin.ignore();
 		std::cout << "Enter the date of the event: ";
 		std::getline(std::cin, date_of_event);
+
+		//Fill matches with events that much the search query
+		dis = user_date_search(date_of_event, matches);
 		
-		try {
-			std::vector<Event> matches = events_with_date(e_man, date_of_event.c_str());
+		if (dis == DATE_OK) {
 
-			std::cout << "--**Select the Event you want to modify**--" << std::endl;
-			std::cout << matches.size() << std::endl;
-			for (int i = 0; i < matches.size(); i++) {
-				std::cout << matches.at(i).get_id() << " " << matches[i].getName() << std::endl;
-				std::cout << std::endl;
-			}
+			//Show the user the Events in matches and retreive their input for which event to modify
+			//We also pass date_of_event to tell the user what their search parameters were
+			event_index = select_event_to_modify(date_of_event, matches);
 
-			std::cin >> event_index;
+			do_modification(event_index);
 
-			std::cout << "What part of the event do you want to modify?" << std::endl;
-			std::cout << "0. Name" << std::endl;
-			std::cout << "1. Date" << std::endl;
-			std::cout << "2. Description" << std::endl;
-			std::cin >> attr_to_mod;
-			ATTRIBUTE ATTR = (ATTRIBUTE)attr_to_mod;
-			std::cout << std::endl;
-
-			//Still need to overload ostream to print text equivalent of ATTRIBUTE
-			std::cout << "Enter the new " << (ATTRIBUTE)attr_to_mod;
-
-			std::cin.clear();
-			std::cin.sync();
-			std::cin.ignore();
-
-			std::getline(std::cin, _mod);
-
-			e_man.modify_event(ATTR, _mod.c_str(), event_index);
-
-			//Save the changes to disk
+			//Save modification to file
 			save_to_file();
 		}
-		catch (VALIDATION_EXCEPTION v) {
-			//if a validation error is thrown within events_with_date, go back to entering the date
-			print_date_format_error();
-			goto MODIFICATION;
+		else if (dis == INVALID_DATE) {
+
 		}
+		else if (dis == DATE_NOT_FOUND) {
+
+		}
+
+	case 2:
+		break;
 	}
+
+	init_program();
+}
+
+DATE_INPUT_STATE user_date_search(string& date_of_event, std::vector<Event>& matches) {
+	try {
+		matches = events_with_date(e_man, date_of_event.c_str());
+
+		if (matches.size() > 0) {
+			
+		}
+		else {
+			return DATE_NOT_FOUND;
+		}
+
+		return DATE_OK;
+	}
+	catch (DATE_INPUT_STATE v) {
+		return INVALID_DATE;
+	}
+}
+
+int select_event_to_modify(string date_of_event, std::vector<Event> matches) {
+	int event_index;
+
+	std::cout << "--**Select the Event you want to modify**--" << std::endl;
+	std::cout << "Found " << matches.size() << " events with a date of " << date_of_event << std::endl;
+	for (int i = 0; i < matches.size(); i++) {
+		std::cout << matches.at(i).get_id() << " " << matches[i].getName() << std::endl;
+		std::cout << std::endl;
+	}
+	std::cin >> event_index;
+
+	return event_index;
+}
+
+ATTRIBUTE get_attr_to_mod() {
+	int attr_to_mod;
+
+	std::cout << "What part of the event do you want to modify?" << std::endl;
+	std::cout << "0. Name" << std::endl;
+	std::cout << "1. Description" << std::endl;
+	std::cout << "2. Date" << std::endl;
+	std::cin >> attr_to_mod;
+	ATTRIBUTE ATTR = (ATTRIBUTE)attr_to_mod;
+
+	return ATTR;
+}
+
+void do_modification(int event_index) {
+	//Print out text equivalent of ATTRIBUTE
+	string _mod;
+	ATTRIBUTE ATTR = get_attr_to_mod();
+	std::cout << "Enter the new " << ATTR << ": ";
+
+	std::cin.clear();
+	std::cin.sync();
+	std::cin.ignore();
+
+	std::getline(std::cin, _mod);
+
+	e_man.modify_event(ATTR, _mod.c_str(), event_index);
 }
 
 void remove_event() {
@@ -234,6 +294,7 @@ void view_all_events() {
 		std::cout << "Event name:        " << e_book.at(i).getName() << std::endl;
 		std::cout << "Event description: " << e_book.at(i).getDescription() << std::endl;
 		std::cout << "Event date:        " << e_book.at(i).getDate() << std::endl;
+		std::cout << std::endl;
 
 	}
 
