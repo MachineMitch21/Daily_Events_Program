@@ -1,9 +1,17 @@
 #pragma once
+
+
 #include "Event.h"
 #include "File_Utils.h"
 #include "Event_Seach.h"
+#include "Input_Validation.h"
 #include <string>
 #include <vector>
+
+#ifndef INPUT_VALIDATION_H
+#define INPUT_VALIDATION_H
+#ifndef EVENT_SEARCH_H
+#define EVENT_SEARCH_H
 
 class Event_Manager
 {
@@ -25,3 +33,5 @@ private:
 	std::vector<Event> e_book;
 };
 
+#endif
+#endif

@@ -1,21 +1,3 @@
-﻿  stdafx.cpp
-  My_Events.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2065: 'Event_Manager': undeclared identifier
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2146: syntax error: missing ')' before identifier 'e_man'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2143: syntax error: missing ';' before '{'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2447: '{': missing function header (old-style formal list?)
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\daily_event_console.h(117): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Event_Manager.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2065: 'Event_Manager': undeclared identifier
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2146: syntax error: missing ')' before identifier 'e_man'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2143: syntax error: missing ';' before '{'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_seach.h(6): error C2447: '{': missing function header (old-style formal list?)
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event_manager.cpp(54): error C3861: 'events_with_date': identifier not found
-  Event.cpp
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(31): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(35): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\event.cpp(39): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-  Generating Code...
+﻿  My_Events.cpp
+  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
+  My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)

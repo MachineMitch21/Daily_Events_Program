@@ -51,7 +51,7 @@ std::vector<Event> Event_Manager::get_event_book() {
 
 DATE_INPUT_STATE Event_Manager::user_date_search(std::string& date_of_event, std::vector<Event>& matches) {
 	try {
-		matches = events_with_date(this, date_of_event.c_str());
+		matches = events_with_date(e_book, date_of_event.c_str());
 
 		if (matches.size() > 0) {
 

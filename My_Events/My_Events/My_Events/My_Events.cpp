@@ -5,6 +5,8 @@
 #include <iostream>
 #include "daily_event_console.h"
 
+void introduction();
+
 int main()
 {
 	introduction();
@@ -15,7 +17,8 @@ int main()
 void introduction() {
 	//std::cout << e_man.get_event_book().at(0).getName() << std::endl;
 
+	Daily_Event_Console dec;
 	std::cout << "Hello, I will help you with your daily events!" << std::endl;
-	init_program();
+	dec.init_program();
 }
 
