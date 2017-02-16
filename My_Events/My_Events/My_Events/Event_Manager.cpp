@@ -41,6 +41,10 @@ void Event_Manager::modify_event(ATTRIBUTE ATTR, const char* _mod, int event_ind
 	e_book.at(event_index).mod_attr(ATTR, _mod);
 }
 
+void Event_Manager::remove_event(int e_index) {
+	e_book.erase(e_book.begin() + e_index);
+}
+
 Event Event_Manager::get_event(int e_index) {
 	return e_book.at(e_index);
 }

@@ -21,6 +21,7 @@ public:
 
 	void create_event(const char* name, const char* desc, const char* date, int id);
 	void modify_event(ATTRIBUTE ATTR, const char* _mod, int event_index);
+	void remove_event(int e_index);
 	Event get_event(int e_index);
 	std::vector<Event> get_event_book();
 
