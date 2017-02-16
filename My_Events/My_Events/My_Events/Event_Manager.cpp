@@ -49,6 +49,38 @@ std::vector<Event> Event_Manager::get_event_book() {
 	return e_book;
 }
 
+DATE_INPUT_STATE Event_Manager::user_date_search(std::string& date_of_event, std::vector<Event>& matches) {
+	try {
+		matches = events_with_date(this, date_of_event.c_str());
+
+		if (matches.size() > 0) {
+
+		}
+		else {
+			return DATE_NOT_FOUND;
+		}
+
+		return DATE_OK;
+	}
+	catch (DATE_INPUT_STATE v) {
+		return INVALID_DATE;
+	}
+}
+
+void Event_Manager::save_to_file() {
+
+	File_Utils<Event> f_utils;
+
+	for (int i = 0; i < e_book.size(); i++) {
+		if (i == 0) {
+			f_utils.write_bin(EVENT_FILE_DIR, e_book.at(i), OVERWRITE);
+		}
+		else {
+			f_utils.write_bin(EVENT_FILE_DIR, e_book.at(i), APPEND);
+		}
+	}
+}
+
 Event_Manager::~Event_Manager()
 {
 }

@@ -39,6 +39,9 @@
     <ClInclude Include="Event_Seach.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="daily_event_console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
