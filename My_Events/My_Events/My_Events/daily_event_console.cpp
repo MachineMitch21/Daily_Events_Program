@@ -200,7 +200,7 @@ void Daily_Event_Console::do_modification(int event_index) {
 }
 
 void Daily_Event_Console::do_remove(int event_index) {
-	e_man.get_event_book().erase(e_man.get_event_book().begin() + event_index);
+	e_man.remove_event(event_index);
 }
 
 void Daily_Event_Console::view_all_events_console() {
