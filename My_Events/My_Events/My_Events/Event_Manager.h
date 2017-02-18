@@ -23,7 +23,7 @@ public:
 	void modify_event(ATTRIBUTE ATTR, const char* _mod, int event_index);
 	void remove_event(int e_index);
 	Event get_event(int e_index);
-	std::vector<Event> get_event_book();
+	std::vector<Event>& get_event_book();
 
 	//User searches for the event to modify and if the search fails for any reason, returns false
 	DATE_INPUT_STATE user_date_search(std::string& date_of_event, std::vector<Event>& matches);

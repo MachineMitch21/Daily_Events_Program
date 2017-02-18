@@ -1,3 +1,4 @@
-﻿  My_Events.cpp
+﻿  daily_event_console.cpp
+c:\users\mitchdev\documents\github\daily_events_program\my_events\my_events\my_events\daily_event_console.cpp(82): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.exe
   My_Events.vcxproj -> C:\Users\mitchDev\Documents\GitHub\Daily_Events_Program\My_Events\My_Events\x64\Debug\My_Events.pdb (Full PDB)

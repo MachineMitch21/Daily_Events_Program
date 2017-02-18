@@ -1,5 +1,13 @@
 #include "daily_event_console.h"
 
+Daily_Event_Console::Daily_Event_Console() : MAX_CHOICES(6) {
+
+}
+
+Daily_Event_Console::~Daily_Event_Console() {
+
+}
+
 void Daily_Event_Console::init_program() {
 
 	if (pass >= 1) {
@@ -32,9 +40,9 @@ void Daily_Event_Console::init_program() {
 			create_event();
 			break;
 		case 2:
-			modify_event();
+			change_event(MODIFY);
 		case 3:
-			remove_event();
+			change_event(REMOVE);
 			break;
 		case 4:
 			view_all_events_console();
@@ -69,28 +77,11 @@ void Daily_Event_Console::create_event() {
 	std::getline(std::cin, desc);
 	std::cout << std::endl;
 
-	//This is a goto that is setup for if a user enters invalid date data
-DATE:
+	date = get_console_date_input();
 
-	std::cout << "Enter date: ";
-	std::getline(std::cin, date);
-	std::cout << std::endl;
+	e_man.create_event(name.c_str(), desc.c_str(), date.c_str(), e_man.get_event_book().size());
 
-	if (valid_date(date)) {
-
-		e_man.create_event(name.c_str(), desc.c_str(), date.c_str(), e_man.get_event_book().size());
-
-		system("cls");
-
-		prompt_another_event();
-
-	}
-	else {
-		//If the user input for date is invalid, clear the console, show the user the correct
-		//format for dates and goto DATE directly above where date input is gathered
-		print_date_format_error();
-		goto DATE;
-	}
+	prompt_another_event();
 }
 
 void Daily_Event_Console::prompt_another_event() {
@@ -113,13 +104,13 @@ void Daily_Event_Console::prompt_another_event() {
 	}
 }
 
-void Daily_Event_Console::modify_event() {
+void Daily_Event_Console::change_event(CHANGE_TYPE change) {
 	string date_of_event;
 	std::vector<Event> matches;
 	DATE_INPUT_STATE dis;
 	int event_index;
 
-	std::cout << "Do you know the date of the event you want to modify?" << std::endl;
+	std::cout << "Do you know the date of the event?" << std::endl;
 	std::cout << "1. Yes" << std::endl;
 	std::cout << "2. No" << std::endl;
 	std::cin >> choice;
@@ -132,8 +123,8 @@ void Daily_Event_Console::modify_event() {
 		std::cin.clear();
 		std::cin.sync();
 		std::cin.ignore();
-		std::cout << "Enter the date of the event: ";
-		std::getline(std::cin, date_of_event);
+		
+		date_of_event = get_console_date_input();
 
 		//Fill matches with events that much the search query
 		dis = e_man.user_date_search(date_of_event, matches);
@@ -144,16 +135,18 @@ void Daily_Event_Console::modify_event() {
 			//We also pass date_of_event to tell the user what their search parameters were
 			event_index = select_event_to_modify(date_of_event, matches);
 
-			do_modification(event_index);
-
-			//Save modification to file
+			switch (change) {
+			case MODIFY:
+				do_modification(event_index);
+			case REMOVE:
+				do_remove(event_index);
+			}
+			
+			//Save change to file
 			e_man.save_to_file();
 		}
-		else if (dis == INVALID_DATE) {
-
-		}
 		else if (dis == DATE_NOT_FOUND) {
-
+			std::cout << "Date not found" << std::endl;
 		}
 
 	case 2:
@@ -166,7 +159,7 @@ void Daily_Event_Console::modify_event() {
 int Daily_Event_Console::select_event_to_modify(string date_of_event, std::vector<Event> matches) {
 	int event_index;
 
-	std::cout << "--**Select the Event you want to modify**--" << std::endl;
+	std::cout << "--**Select the correct event from the events below**--" << std::endl;
 	std::cout << "Found " << matches.size() << " events with a date of " << date_of_event << std::endl;
 	for (int i = 0; i < matches.size(); i++) {
 		std::cout << matches.at(i).get_id() << " " << matches[i].getName() << std::endl;
@@ -206,8 +199,8 @@ void Daily_Event_Console::do_modification(int event_index) {
 	e_man.modify_event(ATTR, _mod.c_str(), event_index);
 }
 
-void Daily_Event_Console::remove_event() {
-
+void Daily_Event_Console::do_remove(int event_index) {
+	e_man.get_event_book().erase(e_man.get_event_book().begin() + event_index);
 }
 
 void Daily_Event_Console::view_all_events_console() {
@@ -230,6 +223,38 @@ void Daily_Event_Console::view_all_events_console() {
 	system("PAUSE");
 
 	init_program();
+}
+
+std::string Daily_Event_Console::get_console_date_input() {
+
+	std::string date;
+
+	bool date_valid = false;
+
+	do {
+
+		std::cout << "Enter date: ";
+		std::getline(std::cin, date);
+		std::cout << std::endl;
+
+		if (valid_date(date)) {
+
+			system("cls");
+
+			date_valid = true;
+
+		}
+		else {
+			//If the user input for date is invalid, clear the console, show the user the correct
+			//format for dates
+			system("cls");
+			print_date_format_error();
+			date_valid = false;
+		}
+
+	} while (!date_valid);
+
+	return date;
 }
 
 void Daily_Event_Console::print_date_format_error() {

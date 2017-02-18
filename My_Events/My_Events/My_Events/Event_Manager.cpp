@@ -49,7 +49,7 @@ Event Event_Manager::get_event(int e_index) {
 	return e_book.at(e_index);
 }
 
-std::vector<Event> Event_Manager::get_event_book() {
+std::vector<Event>& Event_Manager::get_event_book() {
 	return e_book;
 }
 
